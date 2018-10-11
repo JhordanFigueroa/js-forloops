@@ -10,7 +10,7 @@ Write a for-loop that will iterate through 20 numbers (starting at 1 and ending 
 */
 
 var ticketGenerator = 0; 
-for (var i = 0; i<20; i ++){
+for (var i = 1; i<21; i ++){
   var nowServing = console.log('Now Serving', i); 
 }; 
 
@@ -53,12 +53,33 @@ This function will iterate through the person parameter and console.log the foll
 "President person was a great leader."
 */
 
+var deadPresidents = ['Washington', 'Adams', 'Jefferson', 'Madison', 'Monroe']; 
+
+for (var i = 0; i<deadPresidents.length; i++){
+  var dead = console.log('The value at', i, 'is', deadPresidents[i]);
+}
+
+console.log(deadPresidents.length); 
+
+function leaders(person){
+  for (var i = 0; i<person.length; i++){
+    console.log("President " + person[i] + " was a great leader.")
+  }
+}; 
+
+leaders(deadPresidents); 
 
 /* 4) Line Number
 Declare a variable named `stringOfNumbers` and assign its value to an empty string. 
 
 Write a for-loop that concatenates a Number value into that string on each iteration, starting at `10` and continuing up to and including `20`. Console.log your result. It should read "1011121314151617181920"*/
 
+var stringOfNumbers = ''; 
+
+for (var i = 10; i<21; i++){
+  console.log(stringOfNumbers+=i);
+}; 
+console.log(stringOfNumbers); 
 
 /* 5) Even Stevens
 Declare a variable named `evenNumArr` and assign its value to an empty array. 
@@ -83,6 +104,15 @@ Note that every odd index value in `oopsArray` is currently `undefined`. Using a
 [ 'turn' , 'nope' , 'down' , 'nope' , 'for' , 'nope' , 'what' ]
 */
 
+var oopsArray = [ 'turn' , , 'down' , , 'for' , , 'what' ]; 
+// console.log(oopsArray); 
+for (var i = 0; i<oopsArray.length; i++){
+  if(i%2 === 1){
+    // console.log(oopsArray[i])
+    oopsArray[i] = 'nope'
+  }
+}; 
+console.log(oopsArray); 
 
 /* 8) Is It There Oops
 Using a for-loop, iterate through the Array stored at `oopsArray` backwards. Console.log your result. It should look like this:
@@ -96,6 +126,11 @@ nope
 turn
 */
 
+var arr = ['a', 'b', 'c'];
+
+for(var i = oopsArray.length - 1; i>=0; i--){
+  console.log(oopsArray[i])
+}; 
 
 /* 9) Siesta Time
 Declare a variable named `napSchedule` and assign its value to the following array: `[false, false, true, false, true, true]`
@@ -130,7 +165,22 @@ Declare a variable named `topQuote` and assign it to a String value of your favo
 Write a function that will iterate through the string value and return the longest word in that quote. Console.log your result.
 */
 
+var topQuote = 'Send it'; 
+// split method = converts strings to array 
+function bringback(str){
+  var tempStorage = []; 
+  var strToArr = str.split(' '); 
+  console.log(strToArr) // ['Send', 'it']
+  for (var i = 0; i<strToArr.length; i++){
+    console.log(strToArr[i])
+    if(strToArr[i].length > tempStorage.length){
+      tempStorage = strToArr[i]
+    }
+  }
+  console.log(tempStorage);
+}
 
+bringback(topQuote); 
 
 /* 12) Puppet Master
 Declare a variable named `miscStorage` set it's value to be: `[ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ]`
@@ -160,7 +210,14 @@ Note, please use two for loops to complete this problem
 
 var guide = [["Honolulu", "Waikiki"], ["Tokyo", "Tsukiji Fish Market"], ["Cairo", "Pyramids"],["Rome", "Colosseum"]];
 
-
+function sightSeeing(arr){
+  for(var i = 0; i<arr.length; i++){
+    for(var j = 0; j<arr[i].length; j++){
+      console.log(arr[i][j]); 
+    }
+  }
+}
+sightSeeing(guide); 
 
 /* 15) Back to School
 Declare a variable named `currentCohort` and set it's value to be this [array found here](https://gist.github.com/sgnl/e40879b2249e06ca7811).
